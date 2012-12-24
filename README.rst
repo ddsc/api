@@ -15,7 +15,7 @@ To build the API documentation::
   $ nensbuild
   $ bin/sphinx
 
-Sphinx needs a html directory to write the html files in. This bites the way gh-pages work. To work around this the file ``html`` is a symbolic link to this directory. 
+Sphinx needs a html directory to write the html files in. This bites the way gh-pages work. To work around this the file ``html`` is a symbolic link to this directory.
 
 Update the Documentation
 --------------------------
@@ -27,6 +27,4 @@ To update the documentation after a commit of the rst files::
   $ git commit -a
   $ git push
 
-The documentation will be updated and available at: https://ddsc.github.com/api/
-
-
+The documentation will be updated and available at: http://ddsc.github.com/api/
