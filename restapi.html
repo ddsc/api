@@ -49,10 +49,10 @@
   <div class="section" id="the-lizard-portal-api">
 <h1>The Lizard Portal API<a class="headerlink" href="#the-lizard-portal-api" title="Permalink to this headline">¶</a></h1>
 <p>This describes the resources that make up the Lizard API v1.</p>
-<div class="section" id="portal">
-<h2>Portal<a class="headerlink" href="#portal" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="get-a-portal-list">
-<h3>Get a Portal List<a class="headerlink" href="#get-a-portal-list" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="portals">
+<h2>Portals<a class="headerlink" href="#portals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-portals">
+<h3>Get a List of Portals<a class="headerlink" href="#get-a-list-of-portals" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">portals</span>
 </pre></div>
 </div>
@@ -99,8 +99,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="application-screen">
-<h2>Application Screen<a class="headerlink" href="#application-screen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="application-screens">
+<h2>Application Screens<a class="headerlink" href="#application-screens" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="get-a-list-of-application-screens">
 <h3>Get a list of Application Screens<a class="headerlink" href="#get-a-list-of-application-screens" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre>GET /api/v1/portals/:portalid/appscreens/</pre>
@@ -132,8 +132,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="get-a-application-screen">
-<h3>Get a Application Screen<a class="headerlink" href="#get-a-application-screen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-an-application-screen">
+<h3>Get an Application Screen<a class="headerlink" href="#get-an-application-screen" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre>GET /api/v1/portals/:portalid/appscreens/:appscreenid</pre>
 </div>
 <p><strong>Response</strong></p>
@@ -194,18 +194,19 @@
 <p><strong>Response</strong></p>
 <div class="highlight-python"><pre>Status: 200 OK</pre>
 </div>
-<div class="highlight-javascript"><pre>{
-  "data": {
-    "id": "{app_id}",
-    "name": "{app_name}",
-    "description: "{app_description}",
-    "icon": "/api/v1/icons/{app_id}",
-    "actionType": "lizard.app.xxxxx",
-    "actionConfig": {
-           "&lt;&lt;configuration of Action/ App&gt;&gt;"
-    }
-  }
-}</pre>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app_id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app_name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app_description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/{app_id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;actionConfig&quot;</span><span class="o">:</span> <span class="p">{</span>
+           <span class="s2">&quot;&lt;&lt;configuration of Action/ App&gt;&gt;&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -367,7 +368,7 @@ Location: api/v1/workspaces/:id</pre>
     <span class="p">},</span>
     <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{workspaceItemId}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{workspace_item_id}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -409,9 +410,9 @@ Location: api/v1/workspaces/:id</pre>
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
     <span class="p">},</span>
-        <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="nx">workspaceItemId</span><span class="p">},</span>
+    <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{workspace_item_id}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -477,14 +478,14 @@ Location: api/v1/workspaces/:id</pre>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">The Lizard Portal API</a><ul>
-<li><a class="reference internal" href="#portal">Portal</a><ul>
-<li><a class="reference internal" href="#get-a-portal-list">Get a Portal List</a></li>
+<li><a class="reference internal" href="#portals">Portals</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-portals">Get a List of Portals</a></li>
 <li><a class="reference internal" href="#get-a-portal">Get a Portal</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#application-screen">Application Screen</a><ul>
+<li><a class="reference internal" href="#application-screens">Application Screens</a><ul>
 <li><a class="reference internal" href="#get-a-list-of-application-screens">Get a list of Application Screens</a></li>
-<li><a class="reference internal" href="#get-a-application-screen">Get a Application Screen</a></li>
+<li><a class="reference internal" href="#get-an-application-screen">Get an Application Screen</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#applications">Applications</a><ul>
