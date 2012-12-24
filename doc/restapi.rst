@@ -274,7 +274,7 @@ Get a list of Workspaces
         "lastModifiedAt": "{last_modified_at}",
         "workspaceItems": [
           {
-            "id": {workspaceItemId},
+            "id": "{workspace_item_id}",
             "name": "{name}",
             "visible": "{visible}",
             "clickable": true,
