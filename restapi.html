@@ -70,17 +70,9 @@
   <span class="p">]</span>
   <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="get-a-portal">
-<h3>Get a Portal<a class="headerlink" href="#get-a-portal" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>GET /api/v1/portals/:portalid</pre>
-</div>
-<p><strong>Response</strong></p>
-<div class="highlight-python"><pre>Status: 200 OK</pre>
-</div>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+
+
+<span class="p">{</span>
   <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal id}&quot;</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal name}&quot;</span>
@@ -182,6 +174,236 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="get-a-application">
+<h3>Get a Application<a class="headerlink" href="#get-a-application" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This seems to be a double way to specify the Application Screens.</p>
+</div>
+<div class="highlight-python"><pre>GET /api/v1/apps/:portalid</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;{app_id}&#39;</span><span class="p">,</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;{app_name}&#39;</span><span class="p">,</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;{app_description}&#39;</span><span class="p">,</span>
+      <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/api/v1/icon/{app_id}/&#39;</span><span class="p">,</span>
+      <span class="nx">actionType</span><span class="o">:</span> <span class="s1">&#39;lizard.app.xxxxx&#39;</span><span class="p">,</span>
+      <span class="nx">actionConfig</span><span class="o">:</span> <span class="p">{</span>
+             <span class="o">&lt;&lt;</span><span class="nx">configuration</span> <span class="nx">of</span> <span class="nx">Action</span><span class="o">/</span> <span class="nx">App</span><span class="o">&gt;&gt;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="icons">
+<h2>Icons<a class="headerlink" href="#icons" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-icons">
+<h3>Get a list of Icons<a class="headerlink" href="#get-a-list-of-icons" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">icons</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/{icon_id}&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+      <span class="p">]</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-an-icon">
+<h3>Get an Icon<a class="headerlink" href="#get-an-icon" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/icons/:iconid</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK
+Body: a png image</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<p>size</p>
+<blockquote>
+<div><cite>Integer</cite> of the size. Options are: 8 (8x8), 16 (16x16), 32 (32x32) pixels.
+The default is 32.</div></blockquote>
+</div>
+</div>
+<div class="section" id="workspaces">
+<h2>Workspaces<a class="headerlink" href="#workspaces" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-workspaces">
+<h3>Get a list of Workspaces<a class="headerlink" href="#get-a-list-of-workspaces" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/workspaces/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&quot;{tag}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;{tag}&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;ownerType&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_type}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;{status}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">},</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<dl class="docutils">
+<dt>start</dt>
+<dd><cite>Integer</cite> of the record to start with. Default is 0.</dd>
+<dt>limit</dt>
+<dd><cite>Integer</cite> of the number of records in the response. Default is 25.</dd>
+<dt>filter</dt>
+<dd><p class="first"><cite>Object</cite> Applied filters in the request.
+.. note:</p>
+<div class="last highlight-python"><pre>Add an example</pre>
+</div>
+</dd>
+<dt>order</dt>
+<dd><cite>String</cite> of the field name on which the list is orderd.
+Default is &#8216;Modification Date&#8217;.</dd>
+<dt>reverse</dt>
+<dd><cite>Boolean</cite> if the data should be reversed or not. Default is False.</dd>
+</dl>
+</div>
+<div class="section" id="create-a-workspace">
+<h3>Create a Workspace<a class="headerlink" href="#create-a-workspace" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>POST /api/v1/workspaces/</pre>
+</div>
+<p><strong>Parameters</strong>:</p>
+<dl class="docutils">
+<dt>name</dt>
+<dd><cite>String</cite> of the workspace name</dd>
+<dt>description</dt>
+<dd><cite>String</cite> of the description of the workspace</dd>
+<dt>tags</dt>
+<dd><cite>Array of Strings</cite> of the tags</dd>
+<dt>ownerType</dt>
+<dd><cite>String</cite> of the owner type. Options are: private, shared, organization, public</dd>
+<dt>status</dt>
+<dd><cite>String</cite> of the status</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Add a list of acceptable statuses</p>
+</div>
+<dl class="docutils">
+<dt>owner</dt>
+<dd><cite>String</cite> of the slug of the owner</dd>
+<dt>lastModifiedAt</dt>
+<dd><cite>Timestamp</cite> of when this object was last edited</dd>
+</dl>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 201 Created
+Location: api/v1/workspaces/:id</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;{Optional message with the result of the action}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;{tag}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;{tag}&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ownerType&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_type}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;{status}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span>
+      <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-workspace">
+<h3>Get a Workspace<a class="headerlink" href="#get-a-workspace" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/workspaces/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;{tag}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;{tag}&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ownerType&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_type}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;{status}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span>
+    <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-a-workspace">
+<h3>Update a Workspace<a class="headerlink" href="#update-a-workspace" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>PATCH /api/v1/workspaces/:id</pre>
+</div>
+<p><strong>Optional Parameters</strong></p>
+<p>Only the fields that are updated are needed.</p>
+<dl class="docutils">
+<dt>name</dt>
+<dd><cite>String</cite> of the workspace name</dd>
+<dt>description</dt>
+<dd><cite>String</cite> of the description of the workspace</dd>
+<dt>tags</dt>
+<dd><cite>Array of Strings</cite> of the tags</dd>
+<dt>ownerType</dt>
+<dd><cite>String</cite> of the owner type</dd>
+<dt>status</dt>
+<dd><cite>String</cite> of the status</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Add a list of acceptable statuses</p>
+</div>
+<dl class="docutils">
+<dt>owner</dt>
+<dd><cite>String</cite> of the slug of the owner</dd>
+<dt>lastModifiedAt</dt>
+<dd><cite>Timestamp</cite> of when this object was last edited</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="section" id="the-lizard-datasource-rest-api">
@@ -199,7 +421,6 @@
 <li><a class="reference internal" href="#">The Lizard Portal API</a><ul>
 <li><a class="reference internal" href="#portal">Portal</a><ul>
 <li><a class="reference internal" href="#get-a-portal-list">Get a Portal List</a></li>
-<li><a class="reference internal" href="#get-a-portal">Get a Portal</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#application-screen">Application Screen</a><ul>
@@ -209,6 +430,19 @@
 </li>
 <li><a class="reference internal" href="#applications">Applications</a><ul>
 <li><a class="reference internal" href="#get-a-list-of-applications">Get a list of Applications</a></li>
+<li><a class="reference internal" href="#get-a-application">Get a Application</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icons">Icons</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-icons">Get a list of Icons</a></li>
+<li><a class="reference internal" href="#get-an-icon">Get an Icon</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workspaces">Workspaces</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-workspaces">Get a list of Workspaces</a></li>
+<li><a class="reference internal" href="#create-a-workspace">Create a Workspace</a></li>
+<li><a class="reference internal" href="#get-a-workspace">Get a Workspace</a></li>
+<li><a class="reference internal" href="#update-a-workspace">Update a Workspace</a></li>
 </ul>
 </li>
 </ul>
