@@ -1,0 +1,262 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Lizard Portal API &mdash; api 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="api 0.1 documentation" href="index.html" />
+    <link rel="prev" title="DDSC Lizard API" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="DDSC Lizard API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">api 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-lizard-portal-api">
+<h1>The Lizard Portal API<a class="headerlink" href="#the-lizard-portal-api" title="Permalink to this headline">¶</a></h1>
+<p>This describes the resources that make up the Lizard API v1.</p>
+<div class="section" id="portal">
+<h2>Portal<a class="headerlink" href="#portal" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-portal-list">
+<h3>Get a Portal List<a class="headerlink" href="#get-a-portal-list" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">portals</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;{portal id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portals/{portal id}&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-portal">
+<h3>Get a Portal<a class="headerlink" href="#get-a-portal" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/portals/:portalid</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal id}&quot;</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal name}&quot;</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/4&quot;</span>
+        <span class="s2">&quot;appScreenUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portals/{portalid}/appScreen/&quot;</span>
+    <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{link name}&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;{link url}&quot;</span>
+       <span class="p">},</span>
+    <span class="p">],</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="application-screen">
+<h2>Application Screen<a class="headerlink" href="#application-screen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-application-screens">
+<h3>Get a list of Application Screens<a class="headerlink" href="#get-a-list-of-application-screens" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/portals/:portalid/appscreens/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><pre>{
+  "data": [
+    {
+      "id": "{app id}",
+              "name": "{app name}",
+              "description": "{app description}",
+              "url": "/api/v1/portal/{app id}",
+              "icon": "/api/v1/icon/{icon id}",
+              "actionType": "lizard.app.xxxxx"
+        },
+    {
+          "id": '{app id2}",
+              "name": "{app name2}",
+              "description": "{app description}",
+              "url": "/api/v1/portal/{app id2}",
+              "icon": "/api/v1/icon/{icon id}",
+              "actionType": "linkTo"
+        }
+  ],
+      "count": 1
+ }</pre>
+</div>
+</div>
+<div class="section" id="get-a-application-screen">
+<h3>Get a Application Screen<a class="headerlink" href="#get-a-application-screen" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/portals/:portalid/appscreens/:appscreenid</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app id}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-applications">
+<h3>Get a list of Applications<a class="headerlink" href="#get-a-list-of-applications" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This seems to be the same as the Application Screen.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">apps</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/apps/{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;{lizard.app.xxxxx}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-lizard-datasource-rest-api">
+<h1>The Lizard Datasource REST API<a class="headerlink" href="#the-lizard-datasource-rest-api" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Lizard Portal API</a><ul>
+<li><a class="reference internal" href="#portal">Portal</a><ul>
+<li><a class="reference internal" href="#get-a-portal-list">Get a Portal List</a></li>
+<li><a class="reference internal" href="#get-a-portal">Get a Portal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#application-screen">Application Screen</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-application-screens">Get a list of Application Screens</a></li>
+<li><a class="reference internal" href="#get-a-application-screen">Get a Application Screen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#applications">Applications</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-applications">Get a list of Applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-lizard-datasource-rest-api">The Lizard Datasource REST API</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">DDSC Lizard API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/restapi.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="DDSC Lizard API"
+             >previous</a> |</li>
+        <li><a href="index.html">api 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Nelen &amp; Schuurmans.
+      Last updated on 2012-12-24.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
