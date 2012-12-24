@@ -268,7 +268,7 @@ Get a list of Workspaces
     ]
   }
 
-**Parameters**:
+**Parameters**
 
 start
   `Integer` of the record to start with. Default is 0.
@@ -292,7 +292,7 @@ Create a Workspace
 
   POST /api/v1/workspaces/
 
-**Parameters**:
+**Parameters**
 
 name
   `String` of the workspace name
