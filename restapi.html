@@ -267,13 +267,28 @@ The default is 32.</div></blockquote>
         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
       <span class="p">},</span>
       <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span>
+      <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="nx">workspaceItemId</span><span class="p">},</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;opacity&quot;</span><span class="o">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;sourceSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{source_slug}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;layerSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{layer_slug}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;layerUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;{layerurl}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;baseLayerFilter&quot;</span><span class="o">:</span> <span class="s2">&quot;{base_layer_filter}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;filter&quot;</span><span class="o">:</span> <span class="s2">&quot;{filter}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;{style}&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Parameters</strong>:</p>
+<p><strong>Parameters</strong></p>
 <dl class="docutils">
 <dt>start</dt>
 <dd><cite>Integer</cite> of the record to start with. Default is 0.</dd>
@@ -296,7 +311,7 @@ Default is &#8216;Modification Date&#8217;.</dd>
 <h3>Create a Workspace<a class="headerlink" href="#create-a-workspace" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre>POST /api/v1/workspaces/</pre>
 </div>
-<p><strong>Parameters</strong>:</p>
+<p><strong>Parameters</strong></p>
 <dl class="docutils">
 <dt>name</dt>
 <dd><cite>String</cite> of the workspace name</dd>
@@ -318,6 +333,8 @@ Default is &#8216;Modification Date&#8217;.</dd>
 <dd><cite>String</cite> of the slug of the owner</dd>
 <dt>lastModifiedAt</dt>
 <dd><cite>Timestamp</cite> of when this object was last edited</dd>
+<dt>workspaceItems</dt>
+<dd><cite>Array of objects</cite> of workspaceitems</dd>
 </dl>
 <p><strong>Response</strong></p>
 <div class="highlight-python"><pre>Status: 201 Created
@@ -339,6 +356,21 @@ Location: api/v1/workspaces/:id</pre>
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">},</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
     <span class="p">},</span>
+    <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="nx">workspaceItemId</span><span class="p">},</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;opacity&quot;</span><span class="o">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sourceSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{source_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{layer_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;{layerurl}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;baseLayerFilter&quot;</span><span class="o">:</span> <span class="s2">&quot;{base_layer_filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter&quot;</span><span class="o">:</span> <span class="s2">&quot;{filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;{style}&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span><span class="p">,</span>
     <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span>
       <span class="p">}</span>
@@ -365,11 +397,30 @@ Location: api/v1/workspaces/:id</pre>
     <span class="s2">&quot;ownerType&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_type}&quot;</span><span class="p">,</span>
     <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;{status}&quot;</span><span class="p">,</span>
     <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
     <span class="p">},</span>
+        <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="nx">workspaceItemId</span><span class="p">},</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;opacity&quot;</span><span class="o">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sourceSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{source_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{layer_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;{layerurl}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;baseLayerFilter&quot;</span><span class="o">:</span> <span class="s2">&quot;{base_layer_filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter&quot;</span><span class="o">:</span> <span class="s2">&quot;{filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;{style}&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span>
-    <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span>
+    <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{timestamp}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lastModifiedBy&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_id}&quot;</span>
+    <span class="s2">&quot;createdAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{timestamp}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;createdBy&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_id}&quot;</span>
+
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -391,18 +442,16 @@ Location: api/v1/workspaces/:id</pre>
 <dt>ownerType</dt>
 <dd><cite>String</cite> of the owner type</dd>
 <dt>status</dt>
-<dd><cite>String</cite> of the status</dd>
-</dl>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Add a list of acceptable statuses</p>
-</div>
-<dl class="docutils">
+<dd><cite>String</cite> of the status: Options are temporary, normal, approvedmap or fixedMap</dd>
 <dt>owner</dt>
 <dd><cite>String</cite> of the slug of the owner</dd>
 <dt>lastModifiedAt</dt>
 <dd><cite>Timestamp</cite> of when this object was last edited</dd>
 </dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Add a list of WorkspaceItems</p>
+</div>
 </div>
 </div>
 </div>

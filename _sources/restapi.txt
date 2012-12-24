@@ -263,12 +263,27 @@ Get a list of Workspaces
           "name": "{owner_name}"
         },
         "url": "/api/v1/workspaces/:workspaceid",
-        "lastModifiedAt": "{last_modified_at}"
+        "lastModifiedAt": "{last_modified_at}",
+		"workspaceItems": [
+	      {
+            "id": {workspaceItemId},
+            "name": "{name}",
+            "visible": "{visible}",
+            "clickable": true,
+            "opacity": "0.5",
+            "sourceSlug": "{source_slug}",
+            "layerSlug": "{layer_slug}",
+            "layerUrl": "{layerurl}",
+            "baseLayerFilter": "{base_layer_filter}",
+            "filter": "{filter}",
+            "style": "{style}"
+          }
+        ]
       }
     ]
   }
 
-**Parameters**:
+**Parameters**
 
 start
   `Integer` of the record to start with. Default is 0.
@@ -292,7 +307,7 @@ Create a Workspace
 
   POST /api/v1/workspaces/
 
-**Parameters**:
+**Parameters**
 
 name
   `String` of the workspace name
@@ -310,6 +325,8 @@ owner
   `String` of the slug of the owner
 lastModifiedAt
   `Timestamp` of when this object was last edited
+workspaceItems
+  `Array of objects` of workspaceitems
 
 **Response** ::
 
@@ -334,6 +351,21 @@ lastModifiedAt
         "id": {"id"},
         "name": "{owner_name}"
       },
+      "workspaceItems": [
+	    {
+          "id": {workspaceItemId},
+          "name": "{name}",
+          "visible": "{visible}",
+          "clickable": true,
+          "opacity": "0.5",
+          "sourceSlug": "{source_slug}",
+          "layerSlug": "{layer_slug}",
+          "layerUrl": "{layerurl}",
+          "baseLayerFilter": "{base_layer_filter}",
+          "filter": "{filter}",
+          "style": "{style}"
+        }
+      ],
       "url": "/api/v1/workspaces/:workspaceid",
       "lastModifiedAt": "{last_modified_at}"
 	}
@@ -364,11 +396,30 @@ Get a Workspace
       "ownerType": "{owner_type}",
       "status": "{status}",
       "owner": {
-        "id": {"id"},
+        "id": "{id}",
         "name": "{owner_name}"
       },
+	  "workspaceItems": [
+	    {
+          "id": {workspaceItemId},
+          "name": "{name}",
+          "visible": "{visible}",
+          "clickable": true,
+          "opacity": "0.5",
+          "sourceSlug": "{source_slug}",
+          "layerSlug": "{layer_slug}",
+          "layerUrl": "{layerurl}",
+          "baseLayerFilter": "{base_layer_filter}",
+          "filter": "{filter}",
+          "style": "{style}"
+        }
+      ],
       "url": "/api/v1/workspaces/:workspaceid"
-      "lastModifiedAt": "{last_modified_at}"
+      "lastModifiedAt": "{timestamp}",
+	  "lastModifiedBy": "{owner_id}"
+      "createdAt": "{timestamp}",
+	  "createdBy": "{owner_id}"
+
     }
   }
 
@@ -392,14 +443,13 @@ tags
 ownerType
   `String` of the owner type
 status
-  `String` of the status
-.. note::
-    Add a list of acceptable statuses
+  `String` of the status: Options are temporary, normal, approvedmap or fixedMap
 owner
   `String` of the slug of the owner
 lastModifiedAt
   `Timestamp` of when this object was last edited
-
+.. note::
+  Add a list of WorkspaceItems
 
 
 The Lizard Datasource REST API
