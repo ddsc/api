@@ -70,21 +70,29 @@
   <span class="p">]</span>
   <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
 <span class="p">}</span>
-
-
-<span class="p">{</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-portal">
+<h3>Get a Portal<a class="headerlink" href="#get-a-portal" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/portals/:id</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal id}&quot;</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal name}&quot;</span>
     <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal description}&quot;</span><span class="p">,</span>
     <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/4&quot;</span>
-        <span class="s2">&quot;appScreenUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portals/{portalid}/appScreen/&quot;</span>
+    <span class="s2">&quot;appScreenUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portals/{portalid}/appScreen/&quot;</span>
     <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">[</span>
        <span class="p">{</span>
-         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{link name}&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;{link url}&quot;</span>
+         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;{url}&quot;</span>
        <span class="p">},</span>
-    <span class="p">],</span>
+    <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -100,27 +108,28 @@
 <p><strong>Response</strong></p>
 <div class="highlight-python"><pre>Status: 200 OK</pre>
 </div>
-<div class="highlight-javascript"><pre>{
-  "data": [
-    {
-      "id": "{app id}",
-              "name": "{app name}",
-              "description": "{app description}",
-              "url": "/api/v1/portal/{app id}",
-              "icon": "/api/v1/icon/{icon id}",
-              "actionType": "lizard.app.xxxxx"
-        },
-    {
-          "id": '{app id2}",
-              "name": "{app name2}",
-              "description": "{app description}",
-              "url": "/api/v1/portal/{app id2}",
-              "icon": "/api/v1/icon/{icon id}",
-              "actionType": "linkTo"
-        }
-  ],
-      "count": 1
- }</pre>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;app id2}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name2}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id2}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;linkTo&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="get-a-application-screen">
@@ -133,11 +142,11 @@
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app id}&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id}&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span>
    <span class="p">}</span>
  <span class="p">}</span>
 </pre></div>
@@ -174,8 +183,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="get-a-application">
-<h3>Get a Application<a class="headerlink" href="#get-a-application" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-an-application">
+<h3>Get an Application<a class="headerlink" href="#get-an-application" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This seems to be a double way to specify the Application Screens.</p>
@@ -185,19 +194,18 @@
 <p><strong>Response</strong></p>
 <div class="highlight-python"><pre>Status: 200 OK</pre>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;{app_id}&#39;</span><span class="p">,</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;{app_name}&#39;</span><span class="p">,</span>
-      <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;{app_description}&#39;</span><span class="p">,</span>
-      <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/api/v1/icon/{app_id}/&#39;</span><span class="p">,</span>
-      <span class="nx">actionType</span><span class="o">:</span> <span class="s1">&#39;lizard.app.xxxxx&#39;</span><span class="p">,</span>
-      <span class="nx">actionConfig</span><span class="o">:</span> <span class="p">{</span>
-             <span class="o">&lt;&lt;</span><span class="nx">configuration</span> <span class="nx">of</span> <span class="nx">Action</span><span class="o">/</span> <span class="nx">App</span><span class="o">&gt;&gt;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight-javascript"><pre>{
+  "data": {
+    "id": "{app_id}",
+    "name": "{app_name}",
+    "description: "{app_description}",
+    "icon": "/api/v1/icons/{app_id}",
+    "actionType": "lizard.app.xxxxx",
+    "actionConfig": {
+           "&lt;&lt;configuration of Action/ App&gt;&gt;"
+    }
+  }
+}</pre>
 </div>
 </div>
 </div>
@@ -217,7 +225,7 @@
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{icon id}&quot;</span><span class="p">,</span>
       <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/{icon_id}&quot;</span><span class="p">,</span>
     <span class="p">}</span>
-      <span class="p">]</span>
+  <span class="p">]</span>
   <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </pre></div>
@@ -232,10 +240,11 @@
 Body: a png image</pre>
 </div>
 <p><strong>Parameters</strong></p>
-<p>size</p>
-<blockquote>
-<div><cite>Integer</cite> of the size. Options are: 8 (8x8), 16 (16x16), 32 (32x32) pixels.
-The default is 32.</div></blockquote>
+<dl class="docutils">
+<dt>size</dt>
+<dd><cite>Integer</cite> of the size. Options are: 8 (8x8), 16 (16x16), 32 (32x32) pixels.
+The default is 32.</dd>
+</dl>
 </div>
 </div>
 <div class="section" id="workspaces">
@@ -248,9 +257,6 @@ The default is 32.</div></blockquote>
 <div class="highlight-python"><pre>Status: 200 OK</pre>
 </div>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
@@ -268,8 +274,8 @@ The default is 32.</div></blockquote>
       <span class="p">},</span>
       <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span><span class="p">,</span>
       <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="p">{</span>
+      <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
           <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="nx">workspaceItemId</span><span class="p">},</span>
           <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
           <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
@@ -284,7 +290,10 @@ The default is 32.</div></blockquote>
         <span class="p">}</span>
       <span class="p">]</span>
     <span class="p">}</span>
-  <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -342,7 +351,7 @@ Location: api/v1/workspaces/:id</pre>
 </div>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;{Optional message with the result of the action}&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
     <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{description}&quot;</span><span class="p">,</span>
@@ -357,8 +366,8 @@ Location: api/v1/workspaces/:id</pre>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="nx">workspaceItemId</span><span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{workspaceItemId}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
         <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -470,6 +479,7 @@ Location: api/v1/workspaces/:id</pre>
 <li><a class="reference internal" href="#">The Lizard Portal API</a><ul>
 <li><a class="reference internal" href="#portal">Portal</a><ul>
 <li><a class="reference internal" href="#get-a-portal-list">Get a Portal List</a></li>
+<li><a class="reference internal" href="#get-a-portal">Get a Portal</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#application-screen">Application Screen</a><ul>
@@ -479,7 +489,7 @@ Location: api/v1/workspaces/:id</pre>
 </li>
 <li><a class="reference internal" href="#applications">Applications</a><ul>
 <li><a class="reference internal" href="#get-a-list-of-applications">Get a list of Applications</a></li>
-<li><a class="reference internal" href="#get-a-application">Get a Application</a></li>
+<li><a class="reference internal" href="#get-an-application">Get an Application</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#icons">Icons</a><ul>
