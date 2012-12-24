@@ -6,11 +6,11 @@ The Lizard Portal API
 
 This describes the resources that make up the Lizard API v1.
 
-Portal
+Portals
 =======
 
-Get a Portal List
--------------------
+Get a List of Portals
+---------------------
 
 ::
 
@@ -64,7 +64,7 @@ Get a Portal
   }
 
 
-Application Screen
+Application Screens
 ====================
 
 Get a list of Application Screens
@@ -102,7 +102,7 @@ Get a list of Application Screens
     "count": 1
   }
 
-Get a Application Screen
+Get an Application Screen
 ---------------------------
 
 ::
@@ -182,7 +182,7 @@ Get an Application
     "data": {
       "id": "{app_id}",
       "name": "{app_name}",
-      "description: "{app_description}",
+      "description": "{app_description}",
       "icon": "/api/v1/icons/{app_id}",
       "actionType": "lizard.app.xxxxx",
       "actionConfig": {
@@ -364,7 +364,7 @@ workspaceItems
       },
       "workspaceItems": [
         {
-          "id": "{workspaceItemId}",
+          "id": "{workspace_item_id}",
           "name": "{name}",
           "visible": "{visible}",
           "clickable": true,
@@ -410,9 +410,9 @@ Get a Workspace
         "id": "{id}",
         "name": "{owner_name}"
       },
-	  "workspaceItems": [
-	    {
-          "id": {workspaceItemId},
+      "workspaceItems": [
+        {
+          "id": "{workspace_item_id}",
           "name": "{name}",
           "visible": "{visible}",
           "clickable": true,
