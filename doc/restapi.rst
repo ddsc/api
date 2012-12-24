@@ -34,6 +34,18 @@ Get a Portal List
     count: 1
   }
 
+Get a Portal
+--------------
+
+::
+
+  GET /api/v1/portals/:id
+
+**Response** ::
+
+  Status: 200 OK
+
+.. code-block:: javascript
 
   {
     data: {
@@ -41,13 +53,13 @@ Get a Portal List
       "name": "{portal name}"
       "description": "{portal description}",
       "icon": "/api/v1/icons/4"
-	  "appScreenUrl": "/api/v1/portals/{portalid}/appScreen/"
+      "appScreenUrl": "/api/v1/portals/{portalid}/appScreen/"
       "links": [
          {
-           "name": "{link name}",
-           "url": "{link url}"
+           "name": "{name}",
+           "url": "{url}"
          },
-      ],
+      ]
     }
   }
 
@@ -69,26 +81,26 @@ Get a list of Application Screens
 .. code-block:: javascript
 
   {
-    "data": [
+   "data": [
       {
         "id": "{app id}",
-		"name": "{app name}",
-		"description": "{app description}",
-		"url": "/api/v1/portal/{app id}",
-		"icon": "/api/v1/icon/{icon id}",
-		"actionType": "lizard.app.xxxxx"
-	  },
+        "name": "{app name}",
+        "description": "{app description}",
+        "url": "/api/v1/portal/{app id}",
+        "icon": "/api/v1/icon/{icon id}",
+        "actionType": "lizard.app.xxxxx"
+      },
       {
-	    "id": '{app id2}",
-		"name": "{app name2}",
-		"description": "{app description}",
-		"url": "/api/v1/portal/{app id2}",
-		"icon": "/api/v1/icon/{icon id}",
-		"actionType": "linkTo"
-	  }
+        "id": {"app id2}",
+        "name": "{app name2}",
+        "description": "{app description}",
+        "url": "/api/v1/portal/{app id2}",
+        "icon": "/api/v1/icon/{icon id}",
+        "actionType": "linkTo"
+      }
     ],
-	"count": 1
-   }
+    "count": 1
+  }
 
 Get a Application Screen
 ---------------------------
@@ -106,11 +118,11 @@ Get a Application Screen
   {
     "data": {
       "id": "{app id}",
-	  "name": "{app name}",
-	  "description": "{app description}",
-	  "url": "/api/v1/portal/{app id}",
-	  "icon": "/api/v1/icon/{icon id}",
-	  "actionType": "lizard.app.xxxxx"
+      "name": "{app name}",
+      "description": "{app description}",
+      "url": "/api/v1/portal/{app id}",
+      "icon": "/api/v1/icon/{icon id}",
+      "actionType": "lizard.app.xxxxx"
      }
    }
 
@@ -149,7 +161,7 @@ Get a list of Applications
     "count": 1
   }
 
-Get a Application
+Get an Application
 -----------------------
 
 .. note::
@@ -167,16 +179,16 @@ Get a Application
 .. code-block:: javascript
 
   {
-    data: {
-        id: '{app_id}',
-        name: '{app_name}',
-        description: '{app_description}',
-        icon: '/api/v1/icon/{app_id}/',
-        actionType: 'lizard.app.xxxxx',
-        actionConfig: {
-               <<configuration of Action/ App>>
-        }
-     }
+    "data": {
+      "id": "{app_id}",
+      "name": "{app_name}",
+      "description: "{app_description}",
+      "icon": "/api/v1/icons/{app_id}",
+      "actionType": "lizard.app.xxxxx",
+      "actionConfig": {
+             "<<configuration of Action/ App>>"
+      }
+    }
   }
 
 
@@ -202,7 +214,7 @@ Get a list of Icons
         "id": "{icon id}",
         "url": "/api/v1/icons/{icon_id}",
       }
-	]
+    ]
     count: 1
   }
 
@@ -222,7 +234,6 @@ Get an Icon
 **Parameters**
 
 size
-
   `Integer` of the size. Options are: 8 (8x8), 16 (16x16), 32 (32x32) pixels.
   The default is 32.
 
@@ -244,9 +255,6 @@ Get a list of Workspaces
 .. code-block:: javascript
 
   {
-    "total": 1,
-    "count": 1,
-    "start": 1,
     "data": [
       {
         "id": "{id}",
@@ -264,8 +272,8 @@ Get a list of Workspaces
         },
         "url": "/api/v1/workspaces/:workspaceid",
         "lastModifiedAt": "{last_modified_at}",
-		"workspaceItems": [
-	      {
+        "workspaceItems": [
+          {
             "id": {workspaceItemId},
             "name": "{name}",
             "visible": "{visible}",
@@ -280,7 +288,10 @@ Get a list of Workspaces
           }
         ]
       }
-    ]
+    ],
+    "total": 1,
+    "count": 1,
+    "start": 1
   }
 
 **Parameters**
@@ -337,7 +348,7 @@ workspaceItems
 
   {
     "message": "{Optional message with the result of the action}",
-	"data": {
+    "data": {
       "id": "{id}",
       "name": "{name}",
       "description": "{description}",
@@ -352,8 +363,8 @@ workspaceItems
         "name": "{owner_name}"
       },
       "workspaceItems": [
-	    {
-          "id": {workspaceItemId},
+        {
+          "id": "{workspaceItemId}",
           "name": "{name}",
           "visible": "{visible}",
           "clickable": true,
