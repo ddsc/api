@@ -16,6 +16,6 @@ This REST API is now build specifically for the webclient of the DDSC project.
 Here is the table of contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    restapi
