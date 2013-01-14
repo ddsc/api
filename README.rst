@@ -3,7 +3,7 @@ API
 
 This repository holds the DDSC Lizard API documentation.
 
-Documentation: https://ddsc.github.com/api/
+Documentation: http://ddsc.github.com/api/
 
 
 BUILD
