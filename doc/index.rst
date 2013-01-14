@@ -18,4 +18,4 @@ Here is the table of contents:
 .. toctree::
    :maxdepth: 3
 
-   restapi
+   datasource
