@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="api 0.1 documentation" href="#" />
-    <link rel="next" title="The Lizard Portal API" href="restapi.html" /> 
+    <link rel="next" title="The Lizard Portal API" href="portal.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +35,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="restapi.html" title="The Lizard Portal API"
+          <a href="portal.html" title="The Lizard Portal API"
              accesskey="N">next</a> |</li>
         <li><a href="#">api 0.1 documentation</a> &raquo;</li> 
       </ul>
@@ -59,37 +59,76 @@ This REST API is now build specifically for the webclient of the DDSC project.</
 <p>Here is the table of contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="restapi.html">The Lizard Portal API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="restapi.html#portals">Portals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-a-list-of-portals">Get a List of Portals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-a-portal">Get a Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portal.html">The Lizard Portal API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#portals">Portals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-a-list-of-portals">Get a List of Portals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-a-portal">Get a Portal</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="restapi.html#application-screens">Application Screens</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-a-list-of-application-screens">Get a list of Application Screens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-an-application-screen">Get an Application Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#application-screens">Application Screens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-a-list-of-application-screens">Get a list of Application Screens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-an-application-screen">Get an Application Screen</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="restapi.html#applications">Applications</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-a-list-of-applications">Get a list of Applications</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-an-application">Get an Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#applications">Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-a-list-of-applications">Get a list of Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-an-application">Get an Application</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="restapi.html#icons">Icons</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-a-list-of-icons">Get a list of Icons</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-an-icon">Get an Icon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#icons">Icons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-a-list-of-icons">Get a list of Icons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-an-icon">Get an Icon</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="restapi.html#workspaces">Workspaces</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-a-list-of-workspaces">Get a list of Workspaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#create-a-workspace">Create a Workspace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#get-a-workspace">Get a Workspace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restapi.html#update-a-workspace">Update a Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#workspaces">Workspaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-a-list-of-workspaces">Get a list of Workspaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#create-a-workspace">Create a Workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#get-a-workspace">Get a Workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal.html#update-a-workspace">Update a Workspace</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="restapi.html#the-lizard-datasource-rest-api">The Lizard Datasource REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasource.html">The Lizard Datasource REST API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasource.html#layertree">LayerTree</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-list-of-the-layertrees">Get a list of the layertrees</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datasource.html#layers">Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-list-of-layers">Get a list of Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-layer">Get a layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-layer-s-extent">Get a Layer&#8217;s extent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-layer-s-feature-info-list">Get a Layer&#8217;s feature info list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-layer-s-specific-feature-info">Get a Layer&#8217;s specific feature info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datasource.html#wms-server-bij-remote-wms-servers">WMS server bij remote WMS servers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-at-list-of-layers-from-the-mapserver">Get at list of layers from the mapserver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datasource.html#ddsc-portaal">DDSC-portaal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#api-ingang">API ingang</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#id1">LayerTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-list-of-baselayers">Get a list of BaseLayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-a-baselayer">Get a BaseLayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#baselayersfilter-lijst-met-waarden">BaseLayersFilter - lijst met waarden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#feature-lijst">feature lijst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#feature-get">feature get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#tijdserie">tijdserie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#meerdere-tijdseries">meerdere tijdseries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#grafieken">Grafieken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#wms-wfs-server-voor-ddsc">WMS/ WFS server voor DDSC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#geeft-kaartlaag">geeft kaartlaag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-the-layer-s-feature-info">Get the layer&#8217;s feature info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#get-the-layer-legend">Get the layer legend</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datasource.html#annotation">Annotation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datasource.html#baselayers-en-baselayersfilter">BaseLayers en BaseLayersFilter</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -101,7 +140,7 @@ This REST API is now build specifically for the webclient of the DDSC project.</
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Next topic</h4>
-  <p class="topless"><a href="restapi.html"
+  <p class="topless"><a href="portal.html"
                         title="next chapter">The Lizard Portal API</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
@@ -132,14 +171,14 @@ This REST API is now build specifically for the webclient of the DDSC project.</
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="restapi.html" title="The Lizard Portal API"
+          <a href="portal.html" title="The Lizard Portal API"
              >next</a> |</li>
         <li><a href="#">api 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2012, Nelen &amp; Schuurmans.
-      Last updated on 2012-12-24.
+        &copy; Copyright 2013, Nelen &amp; Schuurmans.
+      Last updated on 2013-01-14.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

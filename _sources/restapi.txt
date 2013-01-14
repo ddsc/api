@@ -461,7 +461,3 @@ lastModifiedAt
   `Timestamp` of when this object was last edited
 .. note::
   Add a list of WorkspaceItems
-
-
-The Lizard Datasource REST API
-###################################
