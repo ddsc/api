@@ -1,0 +1,562 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Lizard Portal API &mdash; api 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="api 0.1 documentation" href="index.html" />
+    <link rel="next" title="The Lizard Datasource REST API" href="datasource.html" />
+    <link rel="prev" title="DDSC Lizard API" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="datasource.html" title="The Lizard Datasource REST API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="DDSC Lizard API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">api 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-lizard-portal-api">
+<h1>The Lizard Portal API<a class="headerlink" href="#the-lizard-portal-api" title="Permalink to this headline">¶</a></h1>
+<p>This describes the resources that make up the Lizard API v1.</p>
+<div class="section" id="portals">
+<h2>Portals<a class="headerlink" href="#portals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-portals">
+<h3>Get a List of Portals<a class="headerlink" href="#get-a-list-of-portals" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">portals</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;{portal id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portals/{portal id}&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-portal">
+<h3>Get a Portal<a class="headerlink" href="#get-a-portal" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/portals/:id</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal id}&quot;</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal name}&quot;</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{portal description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/4&quot;</span>
+    <span class="s2">&quot;appScreenUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portals/{portalid}/appScreen/&quot;</span>
+    <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;{url}&quot;</span>
+       <span class="p">},</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="application-screens">
+<h2>Application Screens<a class="headerlink" href="#application-screens" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-application-screens">
+<h3>Get a list of Application Screens<a class="headerlink" href="#get-a-list-of-application-screens" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/portals/:portalid/appscreens/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+ <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;app id2}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name2}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id2}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;linkTo&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-an-application-screen">
+<h3>Get an Application Screen<a class="headerlink" href="#get-an-application-screen" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/portals/:portalid/appscreens/:appscreenid</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/portal/{app id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icon/{icon id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-applications">
+<h3>Get a list of Applications<a class="headerlink" href="#get-a-list-of-applications" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This seems to be the same as the Application Screen.</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">apps</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/apps/{app id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;{lizard.app.xxxxx}&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-an-application">
+<h3>Get an Application<a class="headerlink" href="#get-an-application" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This seems to be a double way to specify the Application Screens.</p>
+</div>
+<div class="highlight-python"><pre>GET /api/v1/apps/:portalid</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{app_id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{app_name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{app_description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/{app_id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;actionType&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard.app.xxxxx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;actionConfig&quot;</span><span class="o">:</span> <span class="p">{</span>
+           <span class="s2">&quot;&lt;&lt;configuration of Action/ App&gt;&gt;&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="icons">
+<h2>Icons<a class="headerlink" href="#icons" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-icons">
+<h3>Get a list of Icons<a class="headerlink" href="#get-a-list-of-icons" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">icons</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{icon id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/icons/{icon_id}&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-an-icon">
+<h3>Get an Icon<a class="headerlink" href="#get-an-icon" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/icons/:iconid</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK
+Body: a png image</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>size</dt>
+<dd><cite>Integer</cite> of the size. Options are: 8 (8x8), 16 (16x16), 32 (32x32) pixels.
+The default is 32.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="workspaces">
+<h2>Workspaces<a class="headerlink" href="#workspaces" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-workspaces">
+<h3>Get a list of Workspaces<a class="headerlink" href="#get-a-list-of-workspaces" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/workspaces/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{description}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&quot;{tag}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;{tag}&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;ownerType&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_type}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;{status}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">},</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{workspace_item_id}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;opacity&quot;</span><span class="o">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;sourceSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{source_slug}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;layerSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{layer_slug}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;layerUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;{layerurl}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;baseLayerFilter&quot;</span><span class="o">:</span> <span class="s2">&quot;{base_layer_filter}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;filter&quot;</span><span class="o">:</span> <span class="s2">&quot;{filter}&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;{style}&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>start</dt>
+<dd><cite>Integer</cite> of the record to start with. Default is 0.</dd>
+<dt>limit</dt>
+<dd><cite>Integer</cite> of the number of records in the response. Default is 25.</dd>
+<dt>filter</dt>
+<dd><p class="first"><cite>Object</cite> Applied filters in the request.
+.. note:</p>
+<div class="last highlight-python"><pre>Add an example</pre>
+</div>
+</dd>
+<dt>order</dt>
+<dd><cite>String</cite> of the field name on which the list is orderd.
+Default is &#8216;Modification Date&#8217;.</dd>
+<dt>reverse</dt>
+<dd><cite>Boolean</cite> if the data should be reversed or not. Default is False.</dd>
+</dl>
+</div>
+<div class="section" id="create-a-workspace">
+<h3>Create a Workspace<a class="headerlink" href="#create-a-workspace" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>POST /api/v1/workspaces/</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>name</dt>
+<dd><cite>String</cite> of the workspace name</dd>
+<dt>description</dt>
+<dd><cite>String</cite> of the description of the workspace</dd>
+<dt>tags</dt>
+<dd><cite>Array of Strings</cite> of the tags</dd>
+<dt>ownerType</dt>
+<dd><cite>String</cite> of the owner type. Options are: private, shared, organization, public</dd>
+<dt>status</dt>
+<dd><cite>String</cite> of the status</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Add a list of acceptable statuses</p>
+</div>
+<dl class="docutils">
+<dt>owner</dt>
+<dd><cite>String</cite> of the slug of the owner</dd>
+<dt>lastModifiedAt</dt>
+<dd><cite>Timestamp</cite> of when this object was last edited</dd>
+<dt>workspaceItems</dt>
+<dd><cite>Array of objects</cite> of workspaceitems</dd>
+</dl>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 201 Created
+Location: api/v1/workspaces/:id</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;{Optional message with the result of the action}&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;{tag}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;{tag}&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ownerType&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_type}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;{status}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{workspace_item_id}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;opacity&quot;</span><span class="o">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sourceSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{source_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{layer_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;{layerurl}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;baseLayerFilter&quot;</span><span class="o">:</span> <span class="s2">&quot;{base_layer_filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter&quot;</span><span class="o">:</span> <span class="s2">&quot;{filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;{style}&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{last_modified_at}&quot;</span>
+      <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-workspace">
+<h3>Get a Workspace<a class="headerlink" href="#get-a-workspace" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/workspaces/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;{description}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;{tag}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;{tag}&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ownerType&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_type}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;{status}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{id}&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_name}&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;workspaceItems&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;{workspace_item_id}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;{name}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="s2">&quot;{visible}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clickable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;opacity&quot;</span><span class="o">:</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sourceSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{source_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerSlug&quot;</span><span class="o">:</span> <span class="s2">&quot;{layer_slug}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;layerUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;{layerurl}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;baseLayerFilter&quot;</span><span class="o">:</span> <span class="s2">&quot;{base_layer_filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter&quot;</span><span class="o">:</span> <span class="s2">&quot;{filter}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;{style}&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/workspaces/:workspaceid&quot;</span>
+    <span class="s2">&quot;lastModifiedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{timestamp}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lastModifiedBy&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_id}&quot;</span>
+    <span class="s2">&quot;createdAt&quot;</span><span class="o">:</span> <span class="s2">&quot;{timestamp}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;createdBy&quot;</span><span class="o">:</span> <span class="s2">&quot;{owner_id}&quot;</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-a-workspace">
+<h3>Update a Workspace<a class="headerlink" href="#update-a-workspace" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>PATCH /api/v1/workspaces/:id</pre>
+</div>
+<p><strong>Optional Parameters</strong></p>
+<p>Only the fields that are updated are needed.</p>
+<dl class="docutils">
+<dt>name</dt>
+<dd><cite>String</cite> of the workspace name</dd>
+<dt>description</dt>
+<dd><cite>String</cite> of the description of the workspace</dd>
+<dt>tags</dt>
+<dd><cite>Array of Strings</cite> of the tags</dd>
+<dt>ownerType</dt>
+<dd><cite>String</cite> of the owner type</dd>
+<dt>status</dt>
+<dd><cite>String</cite> of the status: Options are temporary, normal, approvedmap or fixedMap</dd>
+<dt>owner</dt>
+<dd><cite>String</cite> of the slug of the owner</dd>
+<dt>lastModifiedAt</dt>
+<dd><cite>Timestamp</cite> of when this object was last edited</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Add a list of WorkspaceItems</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Lizard Portal API</a><ul>
+<li><a class="reference internal" href="#portals">Portals</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-portals">Get a List of Portals</a></li>
+<li><a class="reference internal" href="#get-a-portal">Get a Portal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#application-screens">Application Screens</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-application-screens">Get a list of Application Screens</a></li>
+<li><a class="reference internal" href="#get-an-application-screen">Get an Application Screen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#applications">Applications</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-applications">Get a list of Applications</a></li>
+<li><a class="reference internal" href="#get-an-application">Get an Application</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#icons">Icons</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-icons">Get a list of Icons</a></li>
+<li><a class="reference internal" href="#get-an-icon">Get an Icon</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workspaces">Workspaces</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-workspaces">Get a list of Workspaces</a></li>
+<li><a class="reference internal" href="#create-a-workspace">Create a Workspace</a></li>
+<li><a class="reference internal" href="#get-a-workspace">Get a Workspace</a></li>
+<li><a class="reference internal" href="#update-a-workspace">Update a Workspace</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">DDSC Lizard API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="datasource.html"
+                        title="next chapter">The Lizard Datasource REST API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/portal.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="datasource.html" title="The Lizard Datasource REST API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="DDSC Lizard API"
+             >previous</a> |</li>
+        <li><a href="index.html">api 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Nelen &amp; Schuurmans.
+      Last updated on 2013-01-14.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

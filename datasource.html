@@ -1,0 +1,472 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Lizard Datasource REST API &mdash; api 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="api 0.1 documentation" href="index.html" />
+    <link rel="prev" title="DDSC Lizard API" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="DDSC Lizard API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">api 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-lizard-datasource-rest-api">
+<h1>The Lizard Datasource REST API<a class="headerlink" href="#the-lizard-datasource-rest-api" title="Permalink to this headline">¶</a></h1>
+<p>Descript of the Lizard Datasource API.</p>
+<div class="section" id="layertree">
+<h2>LayerTree<a class="headerlink" href="#layertree" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-the-layertrees">
+<h3>Get a list of the layertrees<a class="headerlink" href="#get-a-list-of-the-layertrees" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/layertree/   optional: &lt;&lt;sub_folder&gt;&gt;/&lt;&lt;sub_sub_folder&gt;&gt;/&lt;&lt;&gt;&gt;</pre>
+</div>
+<p><strong>Response</strong>:</p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">xx</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;folderA&#39;</span><span class="p">,</span> <span class="nx">leaf</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+           <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">xx</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;LayerA&#39;</span><span class="p">,</span> <span class="nx">leaf</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="p">...</span><span class="nx">settings</span> <span class="p">..},</span>
+           <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">xx</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;LayerB&#39;</span><span class="p">,</span> <span class="nx">leaf</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="p">...</span><span class="nx">settings</span> <span class="p">..}</span>
+      <span class="p">]},</span>
+     <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">xx</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;folderB&#39;</span><span class="p">,</span> <span class="nx">leaf</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+     <span class="p">]}</span>
+  <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>include_sub_tree</dt>
+<dd><tt class="docutils literal"><span class="pre">Boolean</span></tt></dd>
+</dl>
+</div>
+</div>
+<div class="section" id="layers">
+<h2>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-a-list-of-layers">
+<h3>Get a list of Layers<a class="headerlink" href="#get-a-list-of-layers" title="Permalink to this headline">¶</a></h3>
+<p>These layers are not in a tree structure.</p>
+<div class="highlight-python"><pre>GET /api/v1/layers/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="p">{</span><span class="kr">int</span><span class="p">},</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">xx</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;LayerA&#39;</span><span class="p">,</span> <span class="nx">leaf</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="p">...</span><span class="nx">settings</span> <span class="p">..},</span>
+      <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">xx</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;LayerB&#39;</span><span class="p">,</span> <span class="nx">leaf</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="p">...</span><span class="nx">settings</span> <span class="p">..},</span>
+      <span class="p">{........}</span>
+  <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-layer">
+<h3>Get a layer<a class="headerlink" href="#get-a-layer" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/layer/:layer_id</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="p">{{</span><span class="nx">id</span><span class="p">}},</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="p">{{</span><span class="nx">name</span><span class="p">}},</span>
+      <span class="p">....</span><span class="o">:</span> <span class="p">.....</span>
+  <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-layer-s-extent">
+<h3>Get a Layer&#8217;s extent<a class="headerlink" href="#get-a-layer-s-extent" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/layer/:layer_id/extent/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+      <span class="s2">&quot;layer_id&quot;</span><span class="o">:</span> <span class="mi">104</span><span class="p">,</span>
+      <span class="s2">&quot;extent&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-layer-s-feature-info-list">
+<h3>Get a Layer&#8217;s feature info list<a class="headerlink" href="#get-a-layer-s-feature-info-list" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/layer/:layer_id/features/</pre>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-python"><pre>Status: 200 OK</pre>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+      <span class="s2">&quot;layer_id&quot;</span><span class="o">:</span> <span class="mi">104</span><span class="p">,</span>
+      <span class="s2">&quot;features&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;{{feature_name}}&quot;</span><span class="o">:</span> <span class="s2">&quot;{{value}}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;{{feature_name2}}&quot;</span><span class="o">:</span> <span class="s2">&quot;{{other value}}&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>start en limit</dt>
+<dd>Parameters voor pagination</dd>
+<dt>filter</dt>
+<dd>Filter mogelijkheden</dd>
+<dt>order_by</dt>
+<dd>Parameter waarop lijst is gefilterd</dd>
+<dt>spatial</dt>
+<dd>Punt en buffer</dd>
+</dl>
+</div>
+<div class="section" id="get-a-layer-s-specific-feature-info">
+<h3>Get a Layer&#8217;s specific feature info<a class="headerlink" href="#get-a-layer-s-specific-feature-info" title="Permalink to this headline">¶</a></h3>
+<p>informatie over feature met eventueel link naar aanliggende objection (tijdseries, etc)</p>
+<div class="highlight-python"><pre>GET /api/v1/layer/:layer_id/features/:feature_id</pre>
+</div>
+</div>
+</div>
+<div class="section" id="wms-server-bij-remote-wms-servers">
+<h2>WMS server bij remote WMS servers<a class="headerlink" href="#wms-server-bij-remote-wms-servers" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Why is this a special API?</p>
+</div>
+<div class="section" id="get-at-list-of-layers-from-the-mapserver">
+<h3>Get at list of layers from the mapserver<a class="headerlink" href="#get-at-list-of-layers-from-the-mapserver" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /&lt;map_server&gt;/?request=GetMap</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>layers</dt>
+<dd><cite>Required</cite> List of layer ids</dd>
+<dt>cql_filter</dt>
+<dd>Filter mogelijkheden</dd>
+<dt>MaxFeatures</dt>
+<dd>Pagination</dd>
+<dt>StartIndex</dt>
+<dd>Pagination</dd>
+</dl>
+<p>Geeft lijst met features en eigenschappen</p>
+<div class="highlight-python"><pre>GET /&lt;map_server&gt;/?request=GetFeatureInfo</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>layers en query_layers</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> Lijst met LayerMapId&#8217;s</dd>
+<dt>cql_filter</dt>
+<dd>Filter mogelijkheden</dd>
+</dl>
+<p>Geeft lijst met features en eigenschappen</p>
+<div class="highlight-python"><pre>GET /&lt;map_server&gt;/?request=GetLegendGraphic</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>layers en query_layers</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> Lijst met LayerMapId&#8217;s</dd>
+<dt>cql_filter</dt>
+<dd>Filter mogelijkheden</dd>
+<dt>feature_count</dt>
+<dd>Max aantal features wat terug wordt gegeven</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="ddsc-portaal">
+<h2>DDSC-portaal<a class="headerlink" href="#ddsc-portaal" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="api-ingang">
+<h3>API ingang<a class="headerlink" href="#api-ingang" title="Permalink to this headline">¶</a></h3>
+<p>Overzicht van ingangen van de API (data entries). Inclusief list met beschikbare base layers en Folders</p>
+<div class="highlight-python"><pre>GET /api/v1/services/</pre>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>LayerTree<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Vergelijkbaar met WMS. Gaat hierbij om remote sensing beelden.</p>
+</div>
+<div class="section" id="get-a-list-of-baselayers">
+<h3>Get a list of BaseLayers<a class="headerlink" href="#get-a-list-of-baselayers" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /api/v1/baselayers/</pre>
+</div>
+</div>
+<div class="section" id="get-a-baselayer">
+<h3>Get a BaseLayer<a class="headerlink" href="#get-a-baselayer" title="Permalink to this headline">¶</a></h3>
+<p>informatie over baseLayer en beschikbare BaseLayerFilters, basis URL</p>
+<div class="highlight-python"><pre>GET /api/v1/baselayers/:base_layer_id/</pre>
+</div>
+</div>
+<div class="section" id="baselayersfilter-lijst-met-waarden">
+<h3>BaseLayersFilter - lijst met waarden<a class="headerlink" href="#baselayersfilter-lijst-met-waarden" title="Permalink to this headline">¶</a></h3>
+<p>lijst met filter waarden</p>
+<div class="highlight-python"><pre>GET /api/v1/baselayer/:baseLayerId/:baseLayerFilterSlug/</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<p>filter</p>
+<p>orderby</p>
+<p>start</p>
+<p>limit</p>
+</div>
+<div class="section" id="feature-lijst">
+<h3>feature lijst<a class="headerlink" href="#feature-lijst" title="Permalink to this headline">¶</a></h3>
+<p>Lijst met features in layer</p>
+<div class="highlight-python"><pre>GET /baselayers/:baseLayerId/feature/</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>base_layer_filter</dt>
+<dd>base_layer_filters die worden toegepast</dd>
+<dt>start en limit</dt>
+<dd>Parameters voor pagination</dd>
+<dt>filter</dt>
+<dd>Filter mogelijkheden</dd>
+<dt>order_by</dt>
+<dd>Parameter waarop lijst is gefilterd</dd>
+<dt>spatial</dt>
+<dd>Punt en buffer</dd>
+</dl>
+</div>
+<div class="section" id="feature-get">
+<h3>feature get<a class="headerlink" href="#feature-get" title="Permalink to this headline">¶</a></h3>
+<p>informatie over feature met eventueel link naar aanliggende objection (tijdseries, etc)</p>
+<div class="highlight-python"><pre>GET /baselayers/:baseLayerId/features/:featureID/</pre>
+</div>
+<p>bevat link voor export en grafiek in geval dat tijdserie beschikbaar is</p>
+</div>
+<div class="section" id="tijdserie">
+<h3>tijdserie<a class="headerlink" href="#tijdserie" title="Permalink to this headline">¶</a></h3>
+<p>Tijdserie van locatie</p>
+<div class="highlight-python"><pre>GET /baselayers/:baseLayerSlug&gt;/features/:featureId&gt;/timeseries/:timeseriesId/</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>start</dt>
+<dd>Start tijdstip</dd>
+<dt>end</dt>
+<dd>Eind tijdstip</dd>
+<dt>format</dt>
+<dd>Formaat (csv, png, ……)</dd>
+</dl>
+</div>
+<div class="section" id="meerdere-tijdseries">
+<h3>meerdere tijdseries<a class="headerlink" href="#meerdere-tijdseries" title="Permalink to this headline">¶</a></h3>
+<p>Geeft export van tijdseries</p>
+<div class="highlight-python"><pre>GET /timeseries/</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>tijdseries</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> Lijst met tijdserie id&#8217;s</dd>
+<dt>start</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> Start tijdstip</dd>
+<dt>end</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> Eind tijdstip</dd>
+<dt>format</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> export format</dd>
+</dl>
+</div>
+<div class="section" id="grafieken">
+<h3>Grafieken<a class="headerlink" href="#grafieken" title="Permalink to this headline">¶</a></h3>
+<p>Geeft grafiek van tijdseries (in eerste instantie alleen een plaatje. Later ook mogelijkheden voor andere grafiek type). Een uitwerking van deze service is te vinden op [[<a class="reference external" href="https://github.com/lizardsystem/lizard-graph/blob/master/README.rst][lizard-graph">https://github.com/lizardsystem/lizard-graph/blob/master/README.rst][lizard-graph</a>]]</p>
+<div class="highlight-python"><pre>GET /timeseries/graph/</pre>
+</div>
+<p><strong>parameters</strong>
+tijdseries</p>
+<blockquote>
+<div>Lijst met tijdserie id&#8217;s</div></blockquote>
+<dl class="docutils">
+<dt>start</dt>
+<dd>Start tijdstip</dd>
+<dt>end</dt>
+<dd>Eind tijdstip</dd>
+<dt>format</dt>
+<dd>export format</dd>
+</dl>
+</div>
+<div class="section" id="wms-wfs-server-voor-ddsc">
+<h3>WMS/ WFS server voor DDSC<a class="headerlink" href="#wms-wfs-server-voor-ddsc" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="geeft-kaartlaag">
+<h3>geeft kaartlaag<a class="headerlink" href="#geeft-kaartlaag" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /map/?request=GetMap</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>layers</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> Lijst met LayerMapId&#8217;s</dd>
+<dt>cql_filter</dt>
+<dd>Filter mogelijkheden</dd>
+<dt>MaxFeatures, StartIndex</dt>
+<dd>parameters voor pagination</dd>
+</dl>
+</div>
+<div class="section" id="get-the-layer-s-feature-info">
+<h3>Get the layer&#8217;s feature info<a class="headerlink" href="#get-the-layer-s-feature-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /map/?request=GetFeatureInfo</pre>
+</div>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>layers en query_layers</dt>
+<dd><tt class="docutils literal"><span class="pre">Required</span></tt> Lijst met LayerMapId&#8217;s</dd>
+<dt>cql_filter</dt>
+<dd>Filter mogelijkheden</dd>
+</dl>
+</div>
+<div class="section" id="get-the-layer-legend">
+<h3>Get the layer legend<a class="headerlink" href="#get-the-layer-legend" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>GET /map/?request=GetLegendGraphic</pre>
+</div>
+<p><strong>Parameters</strong>
+layers en query_layers</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">Required</span></tt> Lijst met LayerMapId&#8217;s</div></blockquote>
+<dl class="docutils">
+<dt>cql_filter</dt>
+<dd>Filter mogelijkheden</dd>
+<dt>feature_count</dt>
+<dd>Max aantal features wat terug wordt gegeven</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="annotation">
+<h2>Annotation<a class="headerlink" href="#annotation" title="Permalink to this headline">¶</a></h2>
+<p>Overzicht van ingangen van de API (data entries). Inclusief list met beschikbare base layers en Folders</p>
+<div class="highlight-python"><pre>GET /api/v1/services/</pre>
+</div>
+<div class="section" id="baselayers-en-baselayersfilter">
+<h3>BaseLayers en BaseLayersFilter<a class="headerlink" href="#baselayers-en-baselayersfilter" title="Permalink to this headline">¶</a></h3>
+<p>Vergelijkbaar met DDSC.
+Goed nadenken over Id&#8217;s/slugs waaraan gekoppeld wordt.</p>
+<p>Verder ook APi voor opvragen van annotaties van een object en het toevoegen van annotaties.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Lizard Datasource REST API</a><ul>
+<li><a class="reference internal" href="#layertree">LayerTree</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-the-layertrees">Get a list of the layertrees</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#layers">Layers</a><ul>
+<li><a class="reference internal" href="#get-a-list-of-layers">Get a list of Layers</a></li>
+<li><a class="reference internal" href="#get-a-layer">Get a layer</a></li>
+<li><a class="reference internal" href="#get-a-layer-s-extent">Get a Layer&#8217;s extent</a></li>
+<li><a class="reference internal" href="#get-a-layer-s-feature-info-list">Get a Layer&#8217;s feature info list</a></li>
+<li><a class="reference internal" href="#get-a-layer-s-specific-feature-info">Get a Layer&#8217;s specific feature info</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wms-server-bij-remote-wms-servers">WMS server bij remote WMS servers</a><ul>
+<li><a class="reference internal" href="#get-at-list-of-layers-from-the-mapserver">Get at list of layers from the mapserver</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ddsc-portaal">DDSC-portaal</a><ul>
+<li><a class="reference internal" href="#api-ingang">API ingang</a></li>
+<li><a class="reference internal" href="#id1">LayerTree</a></li>
+<li><a class="reference internal" href="#get-a-list-of-baselayers">Get a list of BaseLayers</a></li>
+<li><a class="reference internal" href="#get-a-baselayer">Get a BaseLayer</a></li>
+<li><a class="reference internal" href="#baselayersfilter-lijst-met-waarden">BaseLayersFilter - lijst met waarden</a></li>
+<li><a class="reference internal" href="#feature-lijst">feature lijst</a></li>
+<li><a class="reference internal" href="#feature-get">feature get</a></li>
+<li><a class="reference internal" href="#tijdserie">tijdserie</a></li>
+<li><a class="reference internal" href="#meerdere-tijdseries">meerdere tijdseries</a></li>
+<li><a class="reference internal" href="#grafieken">Grafieken</a></li>
+<li><a class="reference internal" href="#wms-wfs-server-voor-ddsc">WMS/ WFS server voor DDSC</a></li>
+<li><a class="reference internal" href="#geeft-kaartlaag">geeft kaartlaag</a></li>
+<li><a class="reference internal" href="#get-the-layer-s-feature-info">Get the layer&#8217;s feature info</a></li>
+<li><a class="reference internal" href="#get-the-layer-legend">Get the layer legend</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#annotation">Annotation</a><ul>
+<li><a class="reference internal" href="#baselayers-en-baselayersfilter">BaseLayers en BaseLayersFilter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">DDSC Lizard API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/datasource.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="DDSC Lizard API"
+             >previous</a> |</li>
+        <li><a href="index.html">api 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Nelen &amp; Schuurmans.
+      Last updated on 2013-01-14.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
